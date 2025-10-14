@@ -18,13 +18,16 @@ A JavaScript a hátérben lévő varázst fogja megvalósítani.
 ---
 
 ## Fügvények
-1. legjobbKivalasztas
+1. **legjobbKivalasztas**
    - kiválasztjuk és kiírjuk a legjobb harcost életerő * erő-erő alapján
-2. legbenabbKivalasztas
+     
+2. **legbenabbKivalasztas**
    - kiválasztjuk és kiírjuk a legbenabb harcost életerő * erő-erő alapján
-3. randomHarcosGenerator
+     
+3. **randomHarcosGenerator**
    - készit egy harcost random erőkkel, amit 4-szer lefuttantunk
-4. harc
+     
+4. **harc**
    - 2 random harcos harcol egymással addig amíg egyikük vagy midketőjük életereje el nem fogy
    - kiírja a nyertest vagy döntetlen esetén döntetlen
   
