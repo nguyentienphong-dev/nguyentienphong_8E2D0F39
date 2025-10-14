@@ -22,7 +22,7 @@ A JavaScript a hátérben lévő varázst fogja megvalósítani.
    - kiválasztjuk és kiírjuk a legjobb harcost életerő * erő-erő alapján
      
 2. **legbenabbKivalasztas**
-   - kiválasztjuk és kiírjuk a legbenabb harcost életerő * erő-erő alapján
+   - kiválasztjuk és kiírjuk a legbénabb harcost életerő * erő-erő alapján
      
 3. **randomHarcosGenerator**
    - készit egy harcost random erőkkel, amit 4-szer lefuttantunk
