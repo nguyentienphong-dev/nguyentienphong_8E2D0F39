@@ -29,7 +29,7 @@ A JavaScript a hátérben lévő varázst fogja megvalósítani.
      
 4. **harc**
    - 2 random harcos harcol egymással addig amíg egyikük vagy midketőjük életereje el nem fogy
-   - kiírja a nyertest vagy döntetlen esetén döntetlen
+   - kiírja a nyertest vagy döntetlen esetén döntetlent
   
 ---
 
