@@ -4,16 +4,38 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script type="text/javascript" src="js.js"></script>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <label for="harcosok">Choose your browser from the list:</label>
-    <input list="harcosok" name="harcosok" id="harcosok">
-    <datalist id="harcosok2" onchange="selectionchange()">
-        <option value="e1">
-        <option value="e2">
-        <option value="e3">
-        <option value="e4">
-    </datalist>
+        
+    <form  onsubmit="harc(selsectedHarcos1,selsectedHarcos2)">
+
+        <label for="selectHarcos1">harcosok:</label>
+        <select id="selectHarcos1" name="selsectedHarcos1">
+            <option>válaszd ki az 1. harcost</option>
+            <option value="asd1">asd1</option>
+        </select>
+
+        <label for="selectHarcos2">harcosok:</label>    
+        <select id="selectHarcos2" name="selsectedHarcos2">
+            <option>válaszd ki a 2. harcost</option>
+            <option value="asd2">asd2</option>
+        </select>
+
+        <input type="submit" value="Submit">
+    </form>
+
+    <p id="harcKimenetel">asddd</p>
     
+    <div>
+        <button onclick="legjobbKivalasztas()">találd ki ki a legerősebb</button>
+        <p id="max">asd3</p>
+    </div>
+
+    <div>
+        <button onclick="legjbenabbKivalasztas()">találd ki ki a leggyengébb</button>
+        <p id="min">asd4</p>
+    </div>
 </body>
 </html>
