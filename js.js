@@ -7,7 +7,7 @@ function legjobbKivalasztas(){
             maximumHaros = harcosLista[i];
         }
     }
-    ki.textContent = maximumHaros.nev + " a legerősebb " + Math.floor(maximumHaros.ero * maximumHaros.hp) + " ponttal";
+    ki.textContent = maximumHaros.nev + " a legerősebb " + (maximumHaros.ero * maximumHaros.hp).toFixed(2) + " ponttal" + " " + maximumHaros.ero +" "+ maximumHaros.hp; // test
 };
 
 function legjbenabbKivalasztas(){
@@ -19,12 +19,11 @@ function legjbenabbKivalasztas(){
             minimumHaros = harcosLista[i];
         }
     }
-    ki.textContent = minimumHaros.nev + " a leggyengébb " + Math.floor(minimumHaros.ero * minimumHaros.hp) + " ponttal";
+    ki.textContent = minimumHaros.nev + " a leggyengébb " + (minimumHaros.ero * minimumHaros.hp).toFixed(2) + " ponttal" + " " + minimumHaros.ero +" "+ minimumHaros.hp; // test
 
 };
 
 function randomHarcosGenerator(){
-    const rnd = Math.random();
 
     const nevek1 = ["Sajt", "Gőz", "Acél", "Véres", "Roppantó", "SSR"];
     const nevek2 = ["Evő", "Fej", "Cérna", "Penge", "SUS", "Ár"];
@@ -33,35 +32,56 @@ function randomHarcosGenerator(){
     const nevresz2 = nevek2[Math.floor(Math.random() * nevek2.length)];
     
     const nev = `${nevresz1} ${nevresz2}`;
-    let hp =  (Math.random() * 9 + 1).toFixed(2);
-    let ero = (Math.random() * 3 + 1).toFixed(2);
+    var hp  = 0;
+    hp  = ((Math.random() * 9) + 1).toFixed(2);
+    var ero = 0;
+    ero = ((Math.random() * 2) + 1).toFixed(2);
 
     return { nev, hp, ero };
 }
 
 function harc(){
+
     var ki = document.getElementById("harcKimenetel");
 
     var harcos1Nev = document.getElementById("selectHarcos1");
     var harcos2Nev = document.getElementById("selectHarcos2");
 
-    var harcos1 = {nev:"", hp:0, ero:0};
-    var harcos2 = {nev:"", hp:0, ero:0};
+    var harcos1 = {
+        nev:"asd", 
+        hp:0, 
+        ero:0
+    };
+    var harcos2 = {
+        nev:"asd", 
+        hp:0, 
+        ero:0
+    };
 
+    // hiba itt
     for (let i = 0; i < harcosLista.length; i++) {
-        if (harcosLista[i].nev == harcos1Nev) {
-            harcos1 = harcosLista[i];
+        
+        if (harcos1Nev == harcosLista[i].nev){
+            harcos1.nev = harcosLista[i].nev;
+            harcos1.hp = harcosLista[i].hp;
+            harcos1.ero = harcosLista[i].ero;
         }
-        if (harcosLista[i].nev == harcos2Nev) {
-            harcos2 = harcosLista[i];
-        }
+         
     }
 
+    console.log(harcos1.nev + " " + harcos1.hp + " " + harcos1.ero); // test
+    console.log(harcos2.nev + " " + harcos2.hp + " " + harcos2.ero); // test
+    console.log(harcosLista); // test
+
     var harcveg = false;
+    var idx = 1; // test
     while (harcveg != true){
-        var rnd = Math.random();
-        harcos1.hp -= harcos2.ero * rnd;
-        harcos2.hp -= harcos1.ero * rnd;
+
+        var tempharcos1 = harcos1;
+        tempharcos1.hp -= (harcos2.ero * Math.random()).toFixed(2);
+        
+        var tempharcos2 = harcos2;
+        tempharcos2.hp -= (harcos1.ero * Math.random()).toFixed(2);
 
         if (harcos1.hp <= 0 && harcos2.hp <= 0){
             ki.textContent = "döntetlen";
@@ -75,7 +95,10 @@ function harc(){
             ki.textContent = harcos1.nev + " nyert";
             harcveg = true;
         }
+        console.log(idx +" kör"); // test
+        idx++; // test
     }
+    console.log("lefutott"); // test
 };
 
 // harcosok listája
