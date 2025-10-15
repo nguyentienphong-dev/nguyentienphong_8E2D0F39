@@ -1,4 +1,3 @@
-// kész
 function legjobbKivalasztas(){
 
     var ki = document.getElementById("max");
@@ -11,7 +10,6 @@ function legjobbKivalasztas(){
     ki.textContent = maximumHaros.nev + " a legerősebb " + Math.floor(maximumHaros.ero * maximumHaros.hp) + " ponttal";
 };
 
-// kész
 function legjbenabbKivalasztas(){
 
     var ki = document.getElementById("min");
@@ -25,7 +23,6 @@ function legjbenabbKivalasztas(){
 
 };
 
-// kész
 function randomHarcosGenerator(){
     const rnd = Math.random();
 
@@ -42,10 +39,14 @@ function randomHarcosGenerator(){
     return { nev, hp, ero };
 }
 
-// dolgozni kell rajta
-// external js function with dual properties invite from index.html form as action or onclick
-function harc(harcos1Nev, harcos2Nev){
+function harc(){
     var ki = document.getElementById("harcKimenetel");
+
+    var harcos1Nev = document.getElementById("selectHarcos1");
+    var harcos2Nev = document.getElementById("selectHarcos2");
+
+    var harcos1 = {nev:"", hp:0, ero:0};
+    var harcos2 = {nev:"", hp:0, ero:0};
 
     for (let i = 0; i < harcosLista.length; i++) {
         if (harcosLista[i].nev == harcos1Nev) {
@@ -56,41 +57,50 @@ function harc(harcos1Nev, harcos2Nev){
         }
     }
 
-    while (true){
+    var harcveg = false;
+    while (harcveg != true){
         var rnd = Math.random();
         harcos1.hp -= harcos2.ero * rnd;
         harcos2.hp -= harcos1.ero * rnd;
 
         if (harcos1.hp <= 0 && harcos2.hp <= 0){
-            ki.textContent("döntetlen");
+            ki.textContent = "döntetlen";
+            harcveg = true;
         }
         else if (harcos1.hp <= 0){
-            ki.textContent(harcos2.nev + " nyert");
+            ki.textContent = harcos2.nev + " nyert";
+            harcveg = true;
         }
         else if (harcos2.hp <= 0){
-            ki.textContent(harcos1.nev + " nyert");
+            ki.textContent = harcos1.nev + " nyert";
+            harcveg = true;
         }
     }
 };
 
 // harcosok listája
-var harcosokMennyisege = 4;
+const harcosokMennyisege = 4;
 const harcosLista = [];
 for (let i = 0; i < harcosokMennyisege; i++) {
     harcosLista[i] = randomHarcosGenerator();
 }
 
-
-const select = document.getElementById("selectHarcos1");
-
+// option list
 for (let i = 0; i < harcosLista.length; i++) {
-    const opt = harcosLista[i];
+    for (let j = 1; j < 3; j++) {
+        var opt = harcosLista[i];
 
-    const ki = document.createElement("option");
-    ki.textContent = opt.nev;
-    ki.value = opt.nev;
+        var ki = document.createElement("option");
+        
+        ki.value = opt.nev;
+        ki.textContent = opt.nev;
 
-    // valami bajvan az "select.appendChild(ki)"-val!!! 
-    //select.appendChild(ki);
+        if (j == 1){
+            document.getElementById("selectHarcos1").appendChild(ki);
+        }
+        else{
+            document.getElementById("selectHarcos2").appendChild(ki);
+        }
+    }
+    
 }
-
