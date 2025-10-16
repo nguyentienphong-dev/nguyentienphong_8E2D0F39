@@ -7,7 +7,7 @@ function legjobbKivalasztas(){
             maximumHaros = harcosLista[i];
         }
     }
-    ki.textContent = maximumHaros.nev + " a legerősebb " + (maximumHaros.ero * maximumHaros.hp).toFixed(2) + " ponttal" + " " + maximumHaros.ero +" "+ maximumHaros.hp; // test
+    ki.textContent = maximumHaros.nev + " : " + (maximumHaros.ero * maximumHaros.hp).toFixed(2) + " pont";
 };
 
 function legjbenabbKivalasztas(){
@@ -19,33 +19,31 @@ function legjbenabbKivalasztas(){
             minimumHaros = harcosLista[i];
         }
     }
-    ki.textContent = minimumHaros.nev + " a leggyengébb " + (minimumHaros.ero * minimumHaros.hp).toFixed(2) + " ponttal" + " " + minimumHaros.ero +" "+ minimumHaros.hp; // test
+    ki.textContent = minimumHaros.nev + " : " + (minimumHaros.ero * minimumHaros.hp).toFixed(2) + " pont";
 
 };
 
 function randomHarcosGenerator(){
 
-    const nevek1 = ["Sajt", "Gőz", "Acél", "Véres", "Roppantó", "SSR"];
-    const nevek2 = ["Evő", "Fej", "Cérna", "Penge", "SUS", "Ár"];
+    const nevreszek1 = ["Sajt", "Gőz", "Acél", "Véres", "Roppantó", "SSR", "SR", "R" , "Lord", "A", "Hegy", "Fennséges"];
+    const nevreszek2 = ["Evő", "Fej", "Cérna", "Penge", "SUS", "Ár", "Hős", "Király", "Az", "Hentes", "Isten"];
     
-    const nevresz1 = nevek1[Math.floor(Math.random() * nevek1.length)];
-    const nevresz2 = nevek2[Math.floor(Math.random() * nevek2.length)];
+    const nevresz1 = nevreszek1[Math.floor(Math.random() * nevreszek1.length)];
+    const nevresz2 = nevreszek2[Math.floor(Math.random() * nevreszek2.length)];
     
     const nev = `${nevresz1} ${nevresz2}`;
-    var hp  = 0;
-    hp  = ((Math.random() * 9) + 1).toFixed(2);
+    var maxHp = 200;
+    var maxEro = 30;
+    hp  = ((Math.random() * maxHp) + 1).toFixed(2);
     var ero = 0;
-    ero = ((Math.random() * 2) + 1).toFixed(2);
+    ero = ((Math.random() * maxEro) + 1).toFixed(2);
 
     return { nev, hp, ero };
 }
 
 function harc(){
-
-    var ki = document.getElementById("harcKimenetel");
-
-    var harcos1Nev = document.getElementById("selectHarcos1");
-    var harcos2Nev = document.getElementById("selectHarcos2");
+    const harcos1Nev = document.getElementById("selectHarcos1").value;
+    const harcos2Nev = document.getElementById("selectHarcos2").value;
 
     var harcos1 = {
         nev:"asd", 
@@ -58,30 +56,22 @@ function harc(){
         ero:0
     };
 
-    // hiba itt
     for (let i = 0; i < harcosLista.length; i++) {
         
         if (harcos1Nev == harcosLista[i].nev){
-            harcos1.nev = harcosLista[i].nev;
-            harcos1.hp = harcosLista[i].hp;
-            harcos1.ero = harcosLista[i].ero;
+            harcos1 = harcosLista[i];
         }
-         
+        if (harcos2Nev == harcosLista[i].nev){
+            harcos2 = harcosLista[i];
+        }
     }
 
-    console.log(harcos1.nev + " " + harcos1.hp + " " + harcos1.ero); // test
-    console.log(harcos2.nev + " " + harcos2.hp + " " + harcos2.ero); // test
-    console.log(harcosLista); // test
-
+    var ki = document.getElementById("harcKimenetel");
     var harcveg = false;
-    var idx = 1; // test
     while (harcveg != true){
 
-        var tempharcos1 = harcos1;
-        tempharcos1.hp -= (harcos2.ero * Math.random()).toFixed(2);
-        
-        var tempharcos2 = harcos2;
-        tempharcos2.hp -= (harcos1.ero * Math.random()).toFixed(2);
+        harcos1.hp -= (harcos2.ero * Math.random()).toFixed(2); 
+        harcos2.hp -= (harcos1.ero * Math.random()).toFixed(2);
 
         if (harcos1.hp <= 0 && harcos2.hp <= 0){
             ki.textContent = "döntetlen";
@@ -95,22 +85,20 @@ function harc(){
             ki.textContent = harcos1.nev + " nyert";
             harcveg = true;
         }
-        console.log(idx +" kör"); // test
-        idx++; // test
     }
-    console.log("lefutott"); // test
 };
 
-// harcosok listája
-const harcosokMennyisege = 4;
+//#region harcosok listája
+const harcosokMennyisege = 10;
 const harcosLista = [];
 for (let i = 0; i < harcosokMennyisege; i++) {
     harcosLista[i] = randomHarcosGenerator();
 }
+//#endregion harcosok listája
 
-// option list
+//#region option list
 for (let i = 0; i < harcosLista.length; i++) {
-    for (let j = 1; j < 3; j++) {
+    for (let j = 0; j < 2; j++) {
         var opt = harcosLista[i];
 
         var ki = document.createElement("option");
@@ -124,6 +112,6 @@ for (let i = 0; i < harcosLista.length; i++) {
         else{
             document.getElementById("selectHarcos2").appendChild(ki);
         }
-    }
-    
+    } 
 }
+//#endregion option list

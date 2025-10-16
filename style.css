@@ -1,8 +1,57 @@
 body{
-
+    background-color: goldenrod;
+    width: 500px;
+    height: 700px;
+    margin: auto;
+    margin-top: 20px;
+    border: 1px solid black;
 }
 
 .harcosSelect{
-
+    background-color: gold;
+    width: 150px;
+    height: 30px;
+    border-radius: 0.3rem;
+    border: 2px black solid;
 }
 
+
+button{
+    background-color: gold;
+    min-width: 150px;
+    min-height: 40px;
+    border-radius: 0.3rem;
+    border: 2px black solid;
+    margin: 10px;
+    padding: 10px;
+}
+
+button:hover,select:hover{
+    background-color: rgba(255, 217, 0, 0.664);
+}
+
+.minidiv, .bigdiv{
+    margin: auto;
+    width: 80%;
+    margin-top: 10px;
+}
+
+.bigdiv{
+    border: 1px solid black;
+    margin-top: 50px;
+    padding: 5px;
+}
+
+.p{
+    margin: auto;
+    background-color: gold;
+    width: 300px;
+    border-radius: 0.3rem;
+    border: 2px black solid;
+    text-align: center;
+}
+
+h1{
+    text-align: center;
+    color: gold;
+}
