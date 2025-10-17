@@ -29,7 +29,7 @@ function randomHarcosGenerator(){
     const nevreszek2 = ["Evő", "Fej", "Cérna", "Penge", "SUS", "Ár", "Hős", "Király", "Az", "Hentes", "Isten"];
     
     var veg = false;
-    const nev = "";
+    var nev = ``;
     while (veg == false)
     {
         const nevresz1 = nevreszek1[Math.floor(Math.random() * nevreszek1.length)];
@@ -76,10 +76,14 @@ function harc(){
         for (let i = 0; i < harcosLista.length; i++) {
         
             if (harcos1Nev == harcosLista[i].nev){
-                harcos1 = harcosLista[i];
+                harcos1.nev = harcosLista[i].nev;
+                harcos1.hp = harcosLista[i].hp;
+                harcos1.ero = harcosLista[i].ero;
             }
             if (harcos2Nev == harcosLista[i].nev){
-                harcos2 = harcosLista[i];
+                harcos2.nev = harcosLista[i].nev;
+                harcos2.hp = harcosLista[i].hp;
+                harcos2.ero = harcosLista[i].ero;
             }
         }
 

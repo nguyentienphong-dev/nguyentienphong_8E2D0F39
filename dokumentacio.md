@@ -17,46 +17,62 @@ Ezt a CSS fogja segíteni hogy egy (talán) szebb környezetben tudjuk bámulni 
 
 A JavaScript a hátérben lévő varázst fogja megvalósítani.
 
+Ai nem lett alkalmazva
+
 ---
 ## html
 
 ### index.html
 
 1. **inline CSS**
-   - Az "Olümposz" hiper hivatkozásos div fölévitelekor halványabb lesz
+   - Az "*Olümposz*" hiper hivatkozásos div fölévitelekor halványabb lesz
 
-2. **html**
-   - Az "Olümposz" hiper hivatkozásos div kattintéskor átvisz a "olumposz.html" oldalra
+2. **body**
+   - Az "*Olümposz*" hiper hivatkozásos div kattintéskor átvisz a "*olumposz.html*" oldalra
 
 ### olumposz.html
 
 1. **header**
-   - Meghívja a "style.css"-t és a "js.js"-t
+   - Meghívja a "*style.css*"-t és a "*js.js*"-t
    
 2. **harcolás**
 
    1. **Első harcos**
-      - Egy "dropdown" lista a "harcosSelect" class-val, "selectHarcos1" id-val
-      - fellesz töltve js-ből a hozzá tartozó "option"-ökkel 
+      - Egy lenyíló lista a "*harcosSelect*" class-val, "*selectHarcos1*" id-val
+      - fellesz töltve js-ből a hozzá tartozó "*option*"-ökkel 
 
    2. **Második harcos**
-      - Egy "dropdown" lista a "harcosSelect" class-val, "selectHarcos2" id-val
-      - fellesz töltve js-ből a hozzá tartozó "option"-ökkel 
+      - Egy lenyíló lista a "*harcosSelect*" class-val, "*selectHarcos2*" id-val
+      - fellesz töltve js-ből a hozzá tartozó "*option*"-ökkel 
 
    3. **Kiválasztás**
-      - Egy gomb ami meghívja a "harc()" fügvényt
+      - Egy gomb ami meghívja a "*harc()*" fügvényt
 
    4. **Harc Kimenetel**
       - Ide érkezik a harc kimenetele
-      - rendelekzik a "harcKimenetel" id-val
+      - rendelekzik a "*harcKimenetel*" id-val
 
 3. **Legerősebb**
-   - A "találd ki ki a legerősebb" gomb lenyomásával meghívja a "legjobbKivalasztas()" fügvényt
-   - A "kimenetel" paragrafus érkezik a eredmény
+   - A "találd ki ki a legerősebb" gomb lenyomásával meghívja a "*legjobbKivalasztas()*" fügvényt
+   - A "*kimenetel*" paragrafus érkezik a eredmény
 
 4. **Leggyengébb**  
-   - A "találd ki ki a leggyengébb" gomb lenyomásával meghívja a "legjbenabbKivalasztas()" fügvényt
-   - A "kimenetel" paragrafus érkezik a eredmény
+   - A "találd ki ki a leggyengébb" gomb lenyomásával meghívja a "*legjbenabbKivalasztas()*" fügvényt
+   - A "*kimenetel*" paragrafus érkezik a eredmény
+
+### szadmaz.html
+
+1. **inline CSS**
+   - Az "*vissza*" hiper hivatkozásos div fölévitelekor halványabb lesz
+
+2. **body**
+   1. **szöveg**
+      - "*szadista*"
+      
+   2. **vissza**
+      - vissza dob a "*olumposz.html*" oldalra
+
+
 
 ---
 
@@ -73,22 +89,24 @@ A JavaScript a hátérben lévő varázst fogja megvalósítani.
 3. **randomHarcosGenerator()**
    - készít egy harcost random erőkkel
    - A nevét 2 tömb elemeiből véletlen szerüen álítjuk össze
+   - Ha a név már szerepel a "*harcosLista*"-ban akkor készít egy új nevet
    - mind a életerőt és erő-erőt véletlen szerüen állítjuk össze, előre meghatározott maximum értékekkel és kéttizedes jegyre kerekítve
      
 4. **harc()**
    - Bekéri az előre kiválasztott harcosokat a listárol
    - Meghatározza kik a választott harcosok a nevük alapján
    - A harcosok harcol egymással addig amíg egyikük vagy midketőjük életereje el nem fogy
-   - Kiírja a nyertest nevét, vagy döntetlen esetén "döntetlen"-t
+   - Kiírja a nyertest nevét, vagy döntetlen esetén "*döntetlen*"-t
+   - Ha mindkettő lenyíló listában ugyyanazt a harcost választja akkor Nyissa meg a "*szadmaz.html*"-t
 
 ### region
 
 1. **harcosok listája**
-   - Meghívja a "randomHarcosGenerator()" fügvényt az előre megadott harcosok száma alapján
+   - Meghívja a "*randomHarcosGenerator()*" fügvényt az előre megadott harcosok száma alapján
 
 2. **option list**
-   - készít egy "option"-t a "harcosLista" lista elemeivel
-   - Feltölti a "selectHarcos1" és "selectHarcos2" lenyíló listákat elemekkel
+   - készít egy "option"-t a "*harcosLista*" lista elemeivel
+   - Feltölti a "*selectHarcos1*" és "*selectHarcos2*" lenyíló listákat elemekkel
 
 ---
 
