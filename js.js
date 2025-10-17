@@ -28,10 +28,26 @@ function randomHarcosGenerator(){
     const nevreszek1 = ["Sajt", "Gőz", "Acél", "Véres", "Roppantó", "SSR", "SR", "R" , "Lord", "A", "Hegy", "Fennséges"];
     const nevreszek2 = ["Evő", "Fej", "Cérna", "Penge", "SUS", "Ár", "Hős", "Király", "Az", "Hentes", "Isten"];
     
-    const nevresz1 = nevreszek1[Math.floor(Math.random() * nevreszek1.length)];
-    const nevresz2 = nevreszek2[Math.floor(Math.random() * nevreszek2.length)];
-    
-    const nev = `${nevresz1} ${nevresz2}`;
+    var veg = false;
+    const nev = "";
+    while (veg == false)
+    {
+        const nevresz1 = nevreszek1[Math.floor(Math.random() * nevreszek1.length)];
+        const nevresz2 = nevreszek2[Math.floor(Math.random() * nevreszek2.length)];
+        
+        nev = `${nevresz1} ${nevresz2}`;
+
+        var sameName = 0;
+        harcosLista.forEach(element => {
+            if (element.nev == nev){
+                sameName += 1;
+            }
+        });
+        if (sameName == 0){
+            veg = true;
+        }
+    }
+
     var maxHp = 200;
     var maxEro = 30;
     hp  = ((Math.random() * maxHp) + 1).toFixed(2);
@@ -56,36 +72,43 @@ function harc(){
         ero:0
     };
 
-    for (let i = 0; i < harcosLista.length; i++) {
+    if (harcos1Nev != harcos2Nev) {
+        for (let i = 0; i < harcosLista.length; i++) {
         
-        if (harcos1Nev == harcosLista[i].nev){
-            harcos1 = harcosLista[i];
+            if (harcos1Nev == harcosLista[i].nev){
+                harcos1 = harcosLista[i];
+            }
+            if (harcos2Nev == harcosLista[i].nev){
+                harcos2 = harcosLista[i];
+            }
         }
-        if (harcos2Nev == harcosLista[i].nev){
-            harcos2 = harcosLista[i];
+
+        var ki = document.getElementById("harcKimenetel");
+        var harcveg = false;
+        while (harcveg != true){
+
+            harcos1.hp -= (harcos2.ero * Math.random()).toFixed(2); 
+            harcos2.hp -= (harcos1.ero * Math.random()).toFixed(2);
+
+            if (harcos1.hp <= 0 && harcos2.hp <= 0){
+                ki.textContent = "döntetlen";
+                harcveg = true;
+            }
+            else if (harcos1.hp <= 0){
+                ki.textContent = harcos2.nev + " nyert";
+                harcveg = true;
+            }
+            else if (harcos2.hp <= 0){
+                ki.textContent = harcos1.nev + " nyert";
+                harcveg = true;
+            }
         }
     }
-
-    var ki = document.getElementById("harcKimenetel");
-    var harcveg = false;
-    while (harcveg != true){
-
-        harcos1.hp -= (harcos2.ero * Math.random()).toFixed(2); 
-        harcos2.hp -= (harcos1.ero * Math.random()).toFixed(2);
-
-        if (harcos1.hp <= 0 && harcos2.hp <= 0){
-            ki.textContent = "döntetlen";
-            harcveg = true;
-        }
-        else if (harcos1.hp <= 0){
-            ki.textContent = harcos2.nev + " nyert";
-            harcveg = true;
-        }
-        else if (harcos2.hp <= 0){
-            ki.textContent = harcos1.nev + " nyert";
-            harcveg = true;
-        }
+    else{
+        window.open("szadmaz.html", "_self");
     }
+
+    
 };
 
 //#region harcosok listája

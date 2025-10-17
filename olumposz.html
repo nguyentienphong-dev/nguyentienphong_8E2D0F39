@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js.js" defer></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Harcosok Olümposza</h1>
+
+    <div class="bigdiv" id="harcKiDiv">
+        <div class="minidiv">
+        <label for="selectHarcos1">harcosok: </label>
+        <select class="harcosSelect" id="selectHarcos1"></select>
+        </div>
+
+        <div class="minidiv">
+        <label for="selectHarcos2">harcosok: </label>    
+        <select class="harcosSelect" id="selectHarcos2"></select>
+        </div>
+
+        <button type="bigdiv" onclick="harc()" class="harcosButton">Kiválasztás</button>
+
+        <div class="p"><p id="harcKimenetel">Harc kimenetel</p></div>
+        
+    </div>
+
+    
+    
+    <div class="bigdiv">
+        <button onclick="legjobbKivalasztas()" id="legmax">találd ki ki a legerősebb</button>
+        <div class="p"><p for="legmax" id="max">kimenetel</p></div>
+    </div>
+
+    <div class="bigdiv">
+        <button onclick="legjbenabbKivalasztas()" id="legmin">találd ki ki a leggyengébb</button>
+        <div class="p"><p for="legmin" id="min">kimenetel</p></div>
+    </div>
+</body>
+</html>

@@ -20,7 +20,20 @@ A JavaScript a hátérben lévő varázst fogja megvalósítani.
 ---
 ## html
 
-1. **harcolás**
+### index.html
+
+1. **inline CSS**
+   - Az "Olümposz" hiper hivatkozásos div fölévitelekor halványabb lesz
+
+2. **html**
+   - Az "Olümposz" hiper hivatkozásos div kattintéskor átvisz a "olumposz.html" oldalra
+
+### olumposz.html
+
+1. **header**
+   - Meghívja a "style.css"-t és a "js.js"-t
+   
+2. **harcolás**
 
    1. **Első harcos**
       - Egy "dropdown" lista a "harcosSelect" class-val, "selectHarcos1" id-val
@@ -37,11 +50,11 @@ A JavaScript a hátérben lévő varázst fogja megvalósítani.
       - Ide érkezik a harc kimenetele
       - rendelekzik a "harcKimenetel" id-val
 
-2. **Legerősebb**
+3. **Legerősebb**
    - A "találd ki ki a legerősebb" gomb lenyomásával meghívja a "legjobbKivalasztas()" fügvényt
    - A "kimenetel" paragrafus érkezik a eredmény
 
-3. **Leggyengébb**  
+4. **Leggyengébb**  
    - A "találd ki ki a leggyengébb" gomb lenyomásával meghívja a "legjbenabbKivalasztas()" fügvényt
    - A "kimenetel" paragrafus érkezik a eredmény
 
